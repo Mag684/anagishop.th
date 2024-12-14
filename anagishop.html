@@ -1,0 +1,292 @@
+anagishop.html
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnagiShop.TH</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ffafbd, #ffc3a0);
+            animation: gradientBg 10s infinite alternate;
+        }
+
+        @keyframes gradientBg {
+            0% { background: linear-gradient(to right, #ffafbd, #ffc3a0); }
+            100% { background: linear-gradient(to right, #ff9a9e, #fad0c4); }
+        }
+
+        header {
+            background: linear-gradient(to right, #667eea, #764ba2);
+            color: #00bcd4;
+            padding: 20px 10px;
+            text-align: center;
+            font-size: 2em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 3em;
+            color: transparent;
+            text-shadow: 0 0 5px rgba(255, 0, 0, 1), 
+                         0 0 10px rgba(255, 0, 0, 0.8), 
+                         0 0 15px rgba(255, 165, 0, 0.6),
+                         0 0 20px rgba(255, 255, 0, 0.5),
+                         0 0 25px rgba(0, 255, 0, 0.4),
+                         0 0 30px rgba(0, 0, 255, 0.3),
+                         0 0 35px rgba(75, 0, 130, 0.2),
+                         0 0 40px rgba(238, 130, 238, 0.1);
+            animation: rainbowText 3s ease infinite;
+        }
+
+        @keyframes rainbowText {
+            0% { text-shadow: 0 0 5px rgba(255, 0, 0, 1), 0 0 10px rgba(255, 0, 0, 0.8), 0 0 15px rgba(255, 165, 0, 0.6), 0 0 20px rgba(255, 255, 0, 0.5), 0 0 25px rgba(0, 255, 0, 0.4), 0 0 30px rgba(0, 0, 255, 0.3), 0 0 35px rgba(75, 0, 130, 0.2), 0 0 40px rgba(238, 130, 238, 0.1); }
+            25% { text-shadow: 0 0 5px rgba(255, 165, 0, 1), 0 0 10px rgba(255, 165, 0, 0.8), 0 0 15px rgba(255, 255, 0, 0.6), 0 0 20px rgba(0, 255, 0, 0.5), 0 0 25px rgba(0, 0, 255, 0.4), 0 0 30px rgba(75, 0, 130, 0.3), 0 0 35px rgba(238, 130, 238, 0.2), 0 0 40px rgba(255, 105, 180, 0.1); }
+            50% { text-shadow: 0 0 5px rgba(255, 255, 0, 1), 0 0 10px rgba(255, 255, 0, 0.8), 0 0 15px rgba(0, 255, 0, 0.6), 0 0 20px rgba(0, 0, 255, 0.5), 0 0 25px rgba(75, 0, 130, 0.4), 0 0 30px rgba(238, 130, 238, 0.3), 0 0 35px rgba(255, 105, 180, 0.2), 0 0 40px rgba(255, 0, 255, 0.1); }
+            75% { text-shadow: 0 0 5px rgba(0, 255, 0, 1), 0 0 10px rgba(0, 255, 0, 0.8), 0 0 15px rgba(0, 0, 255, 0.6), 0 0 20px rgba(75, 0, 130, 0.5), 0 0 25px rgba(238, 130, 238, 0.4), 0 0 30px rgba(255, 105, 180, 0.3), 0 0 35px rgba(255, 0, 255, 0.2), 0 0 40px rgba(255, 0, 0, 0.1); }
+            100% { text-shadow: 0 0 5px rgba(0, 0, 255, 1), 0 0 10px rgba(0, 0, 255, 0.8), 0 0 15px rgba(75, 0, 130, 0.6), 0 0 20px rgba(238, 130, 238, 0.5), 0 0 25px rgba(255, 105, 180, 0.4), 0 0 30px rgba(255, 0, 255, 0.3), 0 0 35px rgba(255, 0, 0, 0.2), 0 0 40px rgba(255, 255, 0, 0.1); }
+        }
+
+        /* Login and Register */
+        .form-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-container button {
+            background: linear-gradient(to right, #43cea2, #185a9d);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background 0.3s ease;
+        }
+
+        .form-container button:hover {
+            background: linear-gradient(to right, #185a9d, #43cea2);
+        }
+
+        .game-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .game-item {
+            background: #f9f9f9;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .game-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .game-item h4 {
+            font-size: 1.5em;
+            color: #333;
+            padding: 10px;
+        }
+
+        .game-item p {
+            color: #555;
+            padding: 0 10px 10px 10px;
+        }
+
+        .game-item button {
+            background: linear-gradient(to right, #43cea2, #185a9d);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            width: 100%;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background 0.3s ease;
+        }
+
+        .game-item button:hover {
+            background: linear-gradient(to right, #185a9d, #43cea2);
+        }
+
+        .contact-button {
+            background: #ff6f61;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .contact-button:hover {
+            background: #ff4e3a;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ANAGI SHOP👑</h1>
+    </header>
+
+    <main id="mainContent">
+        <div id="loginPage">
+            <div class="form-container">
+                <h2>เข้าสู่ระบบ</h2>
+                <form id="loginForm">
+                    <input type="text" id="username" placeholder="ชื่อผู้ใช้" required>
+                    <input type="password" id="password" placeholder="รหัสผ่าน" required>
+                    <button type="submit">เข้าสู่ระบบ</button>
+                </form>
+                <p>ยังไม่สมัครสมาชิก? <a href="javascript:void(0);" onclick="showRegister()">สมัครสมาชิก</a></p>
+            </div>
+        </div>
+
+        <div id="registerPage" style="display:none;">
+            <div class="form-container">
+                <h2>สมัครสมาชิก</h2>
+                <form id="registerForm">
+                    <input type="text" id="registerUsername" placeholder="ชื่อผู้ใช้" required>
+                    <input type="password" id="registerPassword" placeholder="รหัสผ่าน" required>
+                    <input type="email" id="registerEmail" placeholder="อีเมล" required>
+                    <button type="submit">สมัครสมาชิก</button>
+                </form>
+                <p>มีบัญชีอยู่แล้ว? <a href="javascript:void(0);" onclick="showLogin()">เข้าสู่ระบบ</a></p>
+            </div>
+        </div>
+
+        <div id="shopPage" style="display:none;">
+            <h2>รายชื่อไอดีเกม</h2>
+            <div class="game-list">
+                <div class="game-item">
+                    <img src="game1.jpg" alt="เกมผจญภัย">
+                    <h4>ไอดีเกม 1: เกมผจญภัย</h4>
+                    <p>ราคา: 200 บาท</p>
+                    <button>ซื้อ</button>
+                </div>
+                <div class="game-item">
+                    <img src="game2.jpg" alt="เกมสงคราม">
+                    <h4>ไอดีเกม 2: เกมสงคราม</h4>
+                    <p>ราคา: 250 บาท</p>
+                    <button>ซื้อ</button>
+                </div>
+                <div class="game-item">
+                    <img src="game2.jpg" alt="เกมสงคราม">
+                    <h4>ไอดีเกม 3: เกมสงคราม</h4>
+                    <p>ราคา: 250 บาท</p>
+                    <button>ซื้อ</button>
+                </div>
+                <div class="game-item">
+                    <img src="game2.jpg" alt="เกมสงคราม">
+                    <h4>ไอดีเกม 4: เกมสงคราม</h4>
+                    <p>ราคา: 250 บาท</p>
+                    <button>ซื้อ</button>
+                </div>
+                <div class="game-item">
+                    <img src="game2.jpg" alt="เกมสงคราม">
+                    <h4>ไอดีเกม 5: เกมสงคราม</h4>
+                    <p>ราคา: 250 บาท</p>
+                    <button>ซื้อ</button>
+                </div>
+                <div class="game-item">
+                    <img src="game2.jpg" alt="เกมสงคราม">
+                    <h4>ไอดีเกม 6: เกมสงคราม</h4>
+                    <p>ราคา: 250 บาท</p>
+                    <button>ซื้อ</button>
+                </div>
+                <!-- เพิ่มรายการไอดีเกมอื่นๆ ที่ต้องการ -->
+            </div>
+
+            <!-- Contact Button -->
+            <a id="contactButton" class="contact-button" href="javascript:void(0);">ติดต่อผู้ดูแล</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy;</p>
+    </footer>
+
+    <script>
+        // แสดงหน้าสมัครสมาชิก
+        function showRegister() {
+            document.getElementById('loginPage').style.display = 'none';
+            document.getElementById('registerPage').style.display = 'block';
+        }
+
+        // แสดงหน้าล็อกอิน
+        function showLogin() {
+            document.getElementById('loginPage').style.display = 'block';
+            document.getElementById('registerPage').style.display = 'none';
+        }
+
+        // ฟังก์ชันสมัครสมาชิก
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('registerUsername').value;
+            const password = document.getElementById('registerPassword').value;
+            const email = document.getElementById('registerEmail').value;
+            localStorage.setItem('username', username);
+            localStorage.setItem('password', password);
+            localStorage.setItem('email', email);
+            alert('สมัครสมาชิกสำเร็จ!');
+            showLogin();
+        });
+
+        // ฟังก์ชันเข้าสู่ระบบ
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const storedUsername = localStorage.getItem('username');
+            const storedPassword = localStorage.getItem('password');
+            if (username === storedUsername && password === storedPassword) {
+                alert('เข้าสู่ระบบสำเร็จ');
+                document.getElementById('loginPage').style.display = 'none';
+                document.getElementById('shopPage').style.display = 'block';
+
+                // เพิ่มลิงก์ติดต่อ
+                const contactLink = localStorage.getItem('contactLink') || 'https://www.facebook.com/profile.php?id=61569699924544';
+                document.getElementById('contactButton').href = contactLink;
+            } else {
+                alert('ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง');
+            }
+        });
+
+        // ตรวจสอบลิงก์ติดต่อจาก localStorage (ถ้ามี)
+        const contactLink = localStorage.getItem('contactLink');
+        if(contactLink) {
+            document.getElementById('contactButton').href = contactLink;
+        }
+    </script>
+</body>
+</html>
